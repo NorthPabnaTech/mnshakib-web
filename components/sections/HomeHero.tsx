@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Headline } from "@/components/ui/SectionLabel";
 import { site } from "@/lib/content/site";
+import Image from "next/image";
 
 export function HomeHero() {
   const { hero } = site;
@@ -39,10 +40,13 @@ export function HomeHero() {
           {/* Right: Profile frame */}
           <div className="lg:max-w-[360px] lg:ml-auto w-full">
             <div className="relative aspect-[4/5] bg-gradient-to-br from-bg-elev2 to-bg border border-line rounded overflow-hidden bg-accent-glow">
-              {/* Replace this monogram with <Image> once Shakib provides a photo */}
-              <div className="absolute inset-0 flex items-center justify-center font-serif italic font-light text-text-dim opacity-35 text-[12rem] tracking-tighter">
-                NS
-              </div>
+              <Image
+                src="/images/MD Nazmus Shakib.png"
+                alt="MD Nazmus Shakib"
+                fill
+                className="object-cover"
+                priority
+              />
 
               {/* Meta footer */}
               <div className="absolute bottom-5 left-5 right-5 flex justify-between font-mono text-[10px] text-text-mute uppercase tracking-[0.13em] z-10">
