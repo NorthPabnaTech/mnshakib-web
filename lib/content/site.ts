@@ -16,8 +16,7 @@ export const site: SiteContent = {
       { type: "ital", value: "two continents" },
       { type: "text", value: "." },
     ],
-    lead:
-      "A decade-plus building B2B SaaS, retail, and AI ventures — from Dhaka boardrooms to Toronto's strategy table. Founder of UpscaleBD. Chief Strategy & Marketing Officer at MAAC.",
+    lead: "A decade-plus building B2B SaaS, retail, and AI ventures — from Dhaka boardrooms to Toronto's strategy table. Founder of UpscaleBD. Chief Strategy & Marketing Officer at MAAC.",
     location: "Toronto · Dhaka",
     availability: "Q2 — Q3 2026",
     isAvailable: true,
@@ -40,23 +39,19 @@ export const site: SiteContent = {
     narrative: [
       {
         type: "paragraph",
-        text:
-          "I founded UpscaleBD Ltd. — a Dhaka-based technology and consulting firm shipping enterprise SaaS and AI products to NGOs, manufacturers, and growing brands across South Asia. Today, alongside that, I serve as Chief Strategy & Marketing Officer at MAAC and lead product strategy at TorontoCreatives.com.",
+        text: "I founded UpscaleBD Ltd. — a Dhaka-based technology and consulting firm shipping enterprise SaaS and AI products to NGOs, manufacturers, and growing brands across South Asia. Today, alongside that, I serve as Chief Strategy & Marketing Officer at MAAC and lead product strategy at TorontoCreatives.com.",
       },
       {
         type: "pullquote",
-        text:
-          "Strategy is only useful if it survives contact with the people who have to execute it. I work where strategy and execution actually meet — the messy middle where most decks die and real products get built.",
+        text: "Strategy is only useful if it survives contact with the people who have to execute it. I work where strategy and execution actually meet — the messy middle where most decks die and real products get built.",
       },
       {
         type: "paragraph",
-        text:
-          "My career has moved across cement, real estate, automotive, retail consulting, ed-tech, and most recently applied AI — for clients ranging from ActionAid Bangladesh and BSRM to Coats, Ha-Meem Group, and Canadian SMEs entering global markets. I've co-built CalibraX and Upscale, taught marketing strategy as an adjunct at Independent University Bangladesh, and consulted across Bangladesh, the GCC, and increasingly Canada.",
+        text: "My career has moved across cement, real estate, automotive, retail consulting, ed-tech, and most recently applied AI — for clients ranging from ActionAid Bangladesh and BSRM to Coats, Ha-Meem Group, and Canadian SMEs entering global markets. I've co-built CalibraX and Upscale, taught marketing strategy as an adjunct at Independent University Bangladesh, and consulted across Bangladesh, the GCC, and increasingly Canada.",
       },
       {
         type: "paragraph",
-        text:
-          "Trained at Copenhagen Business School, chartered with CIM (UK), and a working belief that good consulting looks more like co-founding than slide-making.",
+        text: "Trained at Copenhagen Business School, chartered with CIM (UK), and a working belief that good consulting looks more like co-founding than slide-making.",
       },
     ],
     stats: [
@@ -74,7 +69,7 @@ export const site: SiteContent = {
   },
 
   contact: {
-    email: "hello@mnshakib.com",
+    email: "mnshakib@upscalebd.com",
     location: "Toronto, Canada · Dhaka, Bangladesh",
     availability: "Q2 — Q3 2026",
     responseTime: "Usually within 48 hours",

@@ -6,6 +6,7 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { Timeline } from "@/components/sections/Timeline";
 import { Credentials } from "@/components/sections/Credentials";
 import { ProjectsList } from "@/components/sections/ProjectsList";
+import { ExpertiseGrid } from "@/components/sections/ExpertiseGrid";
 import { ProductsGrid } from "@/components/sections/ProductsGrid";
 import { ContactDetails } from "@/components/sections/ContactDetails";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -78,10 +79,24 @@ export default function HomePage() {
         <ProjectsList />
       </section>
 
+      {/* ── Expertise ── */}
+      <section id="expertise" className="scroll-section border-t border-line-soft">
+        <SectionHeader
+          eyebrow="05 · Expertise"
+          title={[
+            { type: "text", value: "Core areas of " },
+            { type: "ital", value: "expertise" },
+            { type: "text", value: "." },
+          ]}
+          subtitle="Areas where companies and pros trust."
+        />
+        <ExpertiseGrid />
+      </section>
+
       {/* ── Ventures ── */}
       <section id="ventures" className="scroll-section border-t border-line-soft">
         <SectionHeader
-          eyebrow="05 · Ventures & Products"
+          eyebrow="06 · Ventures & Products"
           title={[
             { type: "text", value: "The " },
             { type: "ital", value: "UpscaleBD" },
@@ -95,7 +110,7 @@ export default function HomePage() {
       {/* ── Contact ── */}
       <section id="contact" className="scroll-section border-t border-line-soft">
         <SectionHeader
-          eyebrow="06 · Get in Touch"
+          eyebrow="07 · Get in Touch"
           title={[
             { type: "text", value: "Have a " },
             { type: "ital", value: "hard problem" },

@@ -31,6 +31,13 @@ export interface Certification {
   year?: string;
 }
 
+export interface ExpertiseItem {
+  id: string;
+  title: string;
+  icon: "tmd" | "insights" | "sales" | "data" | "transformation" | "tools";
+  items: string[];
+}
+
 export interface Service {
   id: string;
   serial: string; // "i", "ii", "iii"...

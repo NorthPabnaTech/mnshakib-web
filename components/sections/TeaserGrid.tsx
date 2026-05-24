@@ -51,7 +51,16 @@ const TEASERS: Teaser[] = [
     cta: "View work →",
   },
   {
-    num: "05 · Ventures",
+    num: "05 · Expertise",
+    href: "#expertise",
+    title: "Core areas of ",
+    italic: "expertise",
+    description:
+      "Strategic focus areas across trade marketing, analytics, sales management, transformation, and tools.",
+    cta: "View expertise →",
+  },
+  {
+    num: "06 · Ventures",
     href: "#ventures",
     title: "UpscaleBD ",
     italic: "product family",
@@ -60,7 +69,7 @@ const TEASERS: Teaser[] = [
     cta: "View ventures →",
   },
   {
-    num: "06 · Contact",
+    num: "07 · Contact",
     href: "#contact",
     title: "Get ",
     italic: "in touch",

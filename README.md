@@ -91,6 +91,7 @@ mnshakib-web/
 ## ✏️ How to Edit Content
 
 **Adding a new job to the career timeline:**
+
 ```ts
 // lib/content/experiences.ts
 export const experiences: Experience[] = [
@@ -108,9 +109,11 @@ export const experiences: Experience[] = [
   // ... existing entries
 ];
 ```
+
 Done. Site regenerates on save in dev, or rebuild for prod.
 
 **Changing the hero headline:**
+
 ```ts
 // lib/content/site.ts
 export const site = {
@@ -133,6 +136,7 @@ That's the whole workflow. No DB, no CMS, no admin panel. Content is code, code 
 Defined in `tailwind.config.ts` + `app/globals.css`. All colors come from CSS variables so the theme can be swapped by editing one file.
 
 **Palette:**
+
 - `--bg`: `#0A1628` (deep navy)
 - `--bg-elev`: `#0F1F33`
 - `--accent`: `#D4A84B` (warm gold)
@@ -140,6 +144,7 @@ Defined in `tailwind.config.ts` + `app/globals.css`. All colors come from CSS va
 - `--text-mute`: `#8FA3BD`
 
 **Fonts:**
+
 - **Fraunces** (serif): hero, section titles, project titles
 - **Inter Tight** (sans): body text, buttons
 - **JetBrains Mono**: section labels, dates, technical metadata
@@ -151,21 +156,26 @@ All loaded via `next/font/google` in `app/layout.tsx`.
 ## 🚀 Deployment
 
 **Vercel (recommended — 2 min):**
+
 1. Push to GitHub
 2. Import repo in Vercel
 3. Done. Auto-deploys on every push.
 
 **Self-host on UpscaleBD VPS:**
+
 ```bash
 npm run build
 npm start    # serves on :3000
 ```
+
 Behind Nginx as a reverse proxy.
 
 **Static export (if no dynamic features needed):**
+
 ```bash
 npm run build && npm run export
 ```
+
 Drop the `out/` folder anywhere static-host.
 
 ---
@@ -197,11 +207,11 @@ The page components don't care where data comes from — they take props. So swa
 ## 📌 Still Needs
 
 - [ ] Real profile photo (drop in `public/profile.jpg`, update `site.ts`)
-- [ ] Final email address (currently `hello@mnshakib.com`)
+- [ ] Final email address (currently `mnshakib@upscalebd.com`)
 - [ ] Real testimonial attributions (currently anonymized)
 - [ ] OG image for social shares (drop in `public/og-image.png`)
 - [ ] Favicon (drop in `app/icon.png`)
 
 ---
 
-*Built for Nazmus Shakib · UpscaleBD Ltd.*
+_Built for Nazmus Shakib · UpscaleBD Ltd._

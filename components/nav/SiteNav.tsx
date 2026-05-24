@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { href: "#practice", label: "Practice" },
   { href: "#experience", label: "Experience" },
   { href: "#work", label: "Work" },
+  { href: "#expertise", label: "Expertise" },
   { href: "#ventures", label: "NVT Plus" },
 ];
 
@@ -31,6 +32,7 @@ export function SiteNav() {
       "practice",
       "experience",
       "work",
+      "expertise",
       "ventures",
       "contact",
     ];
