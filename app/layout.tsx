@@ -1,4 +1,3 @@
-import { CtaStrip } from "@/components/footer/CtaStrip";
 import { SiteFooter } from "@/components/footer/SiteFooter";
 import { SiteNav } from "@/components/nav/SiteNav";
 import type { Metadata } from "next";
@@ -60,7 +59,7 @@ export default function RootLayout({
       <body>
         <SiteNav />
         <main>{children}</main>
-        <CtaStrip />
+        {/* <CtaStrip /> */}
         <SiteFooter />
       </body>
     </html>
