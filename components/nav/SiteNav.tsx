@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
   { href: "#about", label: "About" },
   { href: "#practice", label: "Practice" },
   { href: "#experience", label: "Experience" },
   { href: "#work", label: "Work" },
-  { href: "#ventures", label: "Ventures" },
+  { href: "#ventures", label: "NVT Plus" },
 ];
 
 export function SiteNav() {
@@ -18,12 +18,22 @@ export function SiteNav() {
   // Lock body scroll when mobile menu is active
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   // IntersectionObserver — highlight nav item for the section in view
   useEffect(() => {
-    const sectionIds = ["hero", "about", "practice", "experience", "work", "ventures", "contact"];
+    const sectionIds = [
+      "hero",
+      "about",
+      "practice",
+      "experience",
+      "work",
+      "ventures",
+      "contact",
+    ];
     const observers: IntersectionObserver[] = [];
 
     const callback = (entries: IntersectionObserverEntry[]) => {
@@ -62,7 +72,10 @@ export function SiteNav() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-12 py-5 backdrop-blur-xl bg-bg/75 border-b border-line-soft">
         <a
           href="#hero"
-          onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("#hero");
+          }}
           className="font-serif text-lg font-medium tracking-tight z-50"
         >
           Nazmus<span className="text-accent">.</span>Shakib
@@ -80,10 +93,13 @@ export function SiteNav() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(item.href);
+                  }}
                   className={cn(
                     "relative text-sm transition-colors py-1",
-                    isActive ? "text-accent" : "text-text-mute hover:text-text"
+                    isActive ? "text-accent" : "text-text-mute hover:text-text",
                   )}
                 >
                   {item.label}
@@ -97,12 +113,15 @@ export function SiteNav() {
           <li>
             <a
               href="#contact"
-              onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("#contact");
+              }}
               className={cn(
                 "px-5 py-2 border rounded-full text-xs inline-flex items-center gap-1 transition-colors",
                 activeSection === "contact"
                   ? "border-accent text-accent"
-                  : "border-line hover:border-accent hover:text-accent"
+                  : "border-line hover:border-accent hover:text-accent",
               )}
             >
               Let&apos;s Talk <span>→</span>
@@ -119,19 +138,19 @@ export function SiteNav() {
           <span
             className={cn(
               "w-6 h-[1.5px] bg-text absolute transition-all duration-300 ease-in-out",
-              isOpen ? "rotate-45 bg-accent" : "-translate-y-1.5"
+              isOpen ? "rotate-45 bg-accent" : "-translate-y-1.5",
             )}
           />
           <span
             className={cn(
               "w-6 h-[1.5px] bg-text absolute transition-all duration-300 ease-in-out",
-              isOpen ? "opacity-0" : ""
+              isOpen ? "opacity-0" : "",
             )}
           />
           <span
             className={cn(
               "w-6 h-[1.5px] bg-text absolute transition-all duration-300 ease-in-out",
-              isOpen ? "-rotate-45 bg-accent" : "translate-y-1.5"
+              isOpen ? "-rotate-45 bg-accent" : "translate-y-1.5",
             )}
           />
         </button>
@@ -143,7 +162,7 @@ export function SiteNav() {
           "fixed inset-0 bg-bg/98 backdrop-blur-2xl z-40 md:hidden flex flex-col justify-center px-10 transition-all duration-500 ease-in-out",
           isOpen
             ? "opacity-100 pointer-events-auto translate-x-0"
-            : "opacity-0 pointer-events-none translate-x-full"
+            : "opacity-0 pointer-events-none translate-x-full",
         )}
       >
         <ul className="flex flex-col gap-6 font-serif text-3xl tracking-tight max-w-sm">
@@ -155,16 +174,21 @@ export function SiteNav() {
                 key={item.href}
                 className={cn(
                   "transition-all duration-500 transform",
-                  isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
+                  isOpen
+                    ? "translate-x-0 opacity-100"
+                    : "-translate-x-4 opacity-0",
                 )}
                 style={{ transitionDelay: `${idx * 60}ms` }}
               >
                 <a
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(item.href);
+                  }}
                   className={cn(
                     "hover:text-accent transition-colors flex items-baseline gap-4 py-2",
-                    isActive ? "text-accent" : "text-text"
+                    isActive ? "text-accent" : "text-text",
                   )}
                 >
                   <span className="font-mono text-[10px] text-accent tracking-[0.2em] uppercase">
@@ -178,13 +202,16 @@ export function SiteNav() {
           <li
             className={cn(
               "transition-all duration-500 transform pt-6 border-t border-line-soft",
-              isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
+              isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0",
             )}
             style={{ transitionDelay: `${NAV_ITEMS.length * 60}ms` }}
           >
             <a
               href="#contact"
-              onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("#contact");
+              }}
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent text-bg hover:bg-text hover:text-white rounded-full font-medium text-sm transition-all duration-300"
             >
               Let&apos;s Talk <span>→</span>
