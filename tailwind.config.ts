@@ -29,6 +29,7 @@ const config: Config = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "-apple-system", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        lato: ["var(--font-lato)", "monospace"],
       },
       backgroundImage: {
         "accent-glow":

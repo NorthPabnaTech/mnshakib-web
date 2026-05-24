@@ -1,68 +1,86 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/about", label: "About" },
-  { href: "/practice", label: "Practice" },
-  { href: "/experience", label: "Experience" },
-  { href: "/work", label: "Work" },
-  { href: "/ventures", label: "Ventures" },
+  { href: "#about", label: "About" },
+  { href: "#practice", label: "Practice" },
+  { href: "#experience", label: "Experience" },
+  { href: "#work", label: "Work" },
+  { href: "#ventures", label: "Ventures" },
 ];
 
 export function SiteNav() {
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   // Lock body scroll when mobile menu is active
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  // Close menu on navigation
+  // IntersectionObserver — highlight nav item for the section in view
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    const sectionIds = ["hero", "about", "practice", "experience", "work", "ventures", "contact"];
+    const observers: IntersectionObserver[] = [];
 
-  // Force scroll to top on page reload / mount
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-      window.scrollTo(0, 0);
-    }
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: 0,
+    });
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    observers.push(observer);
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
+
+  const scrollTo = (hash: string) => {
+    setIsOpen(false);
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-12 py-5 backdrop-blur-xl bg-bg/75 border-b border-line-soft">
-        <Link href="/" className="font-serif text-lg font-medium tracking-tight z-50">
+        <a
+          href="#hero"
+          onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
+          className="font-serif text-lg font-medium tracking-tight z-50"
+        >
           Nazmus<span className="text-accent">.</span>Shakib
           <span className="ml-2 font-mono text-[10px] text-text-dim uppercase tracking-[0.15em]">
             MCIM · SFP
           </span>
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-9 items-center">
           {NAV_ITEMS.map((item) => {
-            const isActive =
-              pathname === item.href || pathname.startsWith(item.href + "/");
+            const sectionId = item.href.replace("#", "");
+            const isActive = activeSection === sectionId;
             return (
               <li key={item.href}>
-                <Link
+                <a
                   href={item.href}
+                  onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
                   className={cn(
                     "relative text-sm transition-colors py-1",
                     isActive ? "text-accent" : "text-text-mute hover:text-text"
@@ -72,21 +90,27 @@ export function SiteNav() {
                   {isActive && (
                     <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent" />
                   )}
-                </Link>
+                </a>
               </li>
             );
           })}
           <li>
-            <Link
-              href="/contact"
-              className="px-5 py-2 border border-line rounded-full text-xs hover:border-accent hover:text-accent transition-colors inline-flex items-center gap-1"
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
+              className={cn(
+                "px-5 py-2 border rounded-full text-xs inline-flex items-center gap-1 transition-colors",
+                activeSection === "contact"
+                  ? "border-accent text-accent"
+                  : "border-line hover:border-accent hover:text-accent"
+              )}
             >
               Let&apos;s Talk <span>→</span>
-            </Link>
+            </a>
           </li>
         </ul>
 
-        {/* Mobile Navigation Toggle (Hamburger) */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative z-50 focus:outline-none"
@@ -124,8 +148,8 @@ export function SiteNav() {
       >
         <ul className="flex flex-col gap-6 font-serif text-3xl tracking-tight max-w-sm">
           {NAV_ITEMS.map((item, idx) => {
-            const isActive =
-              pathname === item.href || pathname.startsWith(item.href + "/");
+            const sectionId = item.href.replace("#", "");
+            const isActive = activeSection === sectionId;
             return (
               <li
                 key={item.href}
@@ -135,8 +159,9 @@ export function SiteNav() {
                 )}
                 style={{ transitionDelay: `${idx * 60}ms` }}
               >
-                <Link
+                <a
                   href={item.href}
+                  onClick={(e) => { e.preventDefault(); scrollTo(item.href); }}
                   className={cn(
                     "hover:text-accent transition-colors flex items-baseline gap-4 py-2",
                     isActive ? "text-accent" : "text-text"
@@ -146,7 +171,7 @@ export function SiteNav() {
                     0{idx + 1}
                   </span>
                   {item.label}
-                </Link>
+                </a>
               </li>
             );
           })}
@@ -157,12 +182,13 @@ export function SiteNav() {
             )}
             style={{ transitionDelay: `${NAV_ITEMS.length * 60}ms` }}
           >
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent text-bg hover:bg-text hover:text-white rounded-full font-medium text-sm transition-all duration-300"
             >
               Let&apos;s Talk <span>→</span>
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

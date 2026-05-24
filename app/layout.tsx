@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
-import { SiteNav } from "@/components/nav/SiteNav";
 import { CtaStrip } from "@/components/footer/CtaStrip";
 import { SiteFooter } from "@/components/footer/SiteFooter";
+import { SiteNav } from "@/components/nav/SiteNav";
+import type { Metadata } from "next";
+import { Fraunces, Inter_Tight, JetBrains_Mono, Lato } from "next/font/google";
 import "./globals.css";
 
 const fontSerif = Fraunces({
@@ -27,6 +27,13 @@ const fontMono = JetBrains_Mono({
   display: "swap",
 });
 
+const fontLato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  weight: ["400", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Nazmus Shakib — Product Strategy & Venture Building",
   description:
@@ -40,11 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`${fontSerif.variable} ${fontSans.variable} ${fontMono.variable}`}
+      className={`${fontSerif.variable} ${fontSans.variable} ${fontMono.variable} ${fontLato.variable}`}
     >
       <body>
         <SiteNav />

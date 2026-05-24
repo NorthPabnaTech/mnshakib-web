@@ -1,8 +1,38 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Headline } from "@/components/ui/SectionLabel";
 import { site } from "@/lib/content/site";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+function ScrollButton({
+  href,
+  variant = "primary",
+  children,
+}: {
+  href: string;
+  variant?: "primary" | "ghost";
+  children: React.ReactNode;
+}) {
+  const scrollTo = () => {
+    const el = document.getElementById(href.replace("#", ""));
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <button
+      onClick={scrollTo}
+      className={cn(
+        "inline-flex items-center gap-2 text-sm transition-all duration-300",
+        variant === "primary"
+          ? "bg-accent text-bg hover:bg-text hover:-translate-y-px px-7 py-3.5 rounded-full font-medium"
+          : "border border-line text-text hover:border-accent hover:text-accent px-7 py-3.5 rounded-full"
+      )}
+    >
+      {children}
+    </button>
+  );
+}
 
 export function HomeHero() {
   const { hero } = site;
@@ -28,12 +58,12 @@ export function HomeHero() {
             </p>
 
             <div className="flex gap-4 items-center flex-wrap">
-              <Button variant="primary" href="/work">
+              <ScrollButton variant="primary" href="#work">
                 View selected work <span>→</span>
-              </Button>
-              <Button variant="ghost" href="/contact">
+              </ScrollButton>
+              <ScrollButton variant="ghost" href="#contact">
                 Start a conversation
-              </Button>
+              </ScrollButton>
             </div>
           </div>
 

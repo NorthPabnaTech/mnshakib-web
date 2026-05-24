@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { site } from "@/lib/content/site";
 
@@ -20,9 +21,16 @@ export function SiteFooter() {
                 {s.label}
               </a>
             ))}
-            <Link href="/contact" className="hover:text-accent transition-colors">
-              Contact
-            </Link>
+            <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="hover:text-accent transition-colors cursor-pointer"
+              >
+                Contact
+              </a>
           </div>
         </div>
       </Container>

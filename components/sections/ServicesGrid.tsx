@@ -21,13 +21,19 @@ export function ServicesGrid() {
               <h3 className="font-serif font-normal text-2xl tracking-tight leading-tight mb-3">
                 {s.title}{" "}
                 {s.italicTitle && (
-                  <span className="italic text-accent-soft font-light">{s.italicTitle}</span>
+                  <span className="italic text-accent-soft font-light">
+                    {s.italicTitle}
+                  </span>
                 )}
               </h3>
-              <p className="text-text-mute text-[15px] leading-relaxed mb-5">{s.description}</p>
+              <p className="text-text-mute text-[15px] leading-relaxed mb-5">
+                {s.description}
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 {s.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
+                  <Tag className="border-green-500" key={t}>
+                    {t}
+                  </Tag>
                 ))}
               </div>
             </article>

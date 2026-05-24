@@ -16,7 +16,7 @@ export function SectionLabel({
     <div
       className={cn(
         "font-mono text-[11px] uppercase text-accent tracking-[0.3em] mb-6 flex items-center gap-4",
-        className
+        className,
       )}
     >
       <span className="w-6 h-px bg-accent" />
@@ -47,7 +47,7 @@ export function Headline({
           </span>
         ) : (
           <span key={i}>{p.value}</span>
-        )
+        ),
       )}
     </h1>
   );

@@ -21,7 +21,8 @@ export const experiences: Experience[] = [
     role: "Founder & Managing Director",
     company: "UpscaleBD Ltd.",
     location: "Dhaka, Bangladesh",
-    startDate: "2021",
+    // startDate: "2021",
+    startDate: "2025",
     endDate: "Present",
     isCurrent: true,
     description:
@@ -38,43 +39,44 @@ export const experiences: Experience[] = [
     company: "Market Access Analytics & Consulting (MAAC)",
     location: "Remote",
     startDate: "2020",
-    endDate: "Present",
+    endDate: "2025",
+    // endDate: "Present",
     isCurrent: true,
     description:
       "Senior leadership across strategy, marketing, and platform development. Co-led the launch of CalibraX (gamified business simulation) and supported the Upscale ecosystem buildout.",
   },
-  {
-    id: "pmaspire",
-    role: "Consultant — Advertising & Sales Promotions",
-    company: "PMaspire",
-    location: "Singapore",
-    startDate: "2022",
-    endDate: "Present",
-    isCurrent: true,
-    description:
-      "Senior consulting for a project management education platform serving aspirants in 100+ countries — brand, GTM, and growth strategy.",
-  },
-  {
-    id: "iub",
-    role: "Adjunct Lecturer · Marketing Strategy",
-    company: "Independent University, Bangladesh (IUB)",
-    location: "Dhaka, Bangladesh",
-    startDate: "2016",
-    endDate: "Present",
-    isCurrent: true,
-    description:
-      "Teaching MBA and undergraduate courses on marketing strategy, brand management, and entrepreneurship. A practitioner-led perspective on theory.",
-  },
-  {
-    id: "market-access",
-    role: "Chief Business Development Officer",
-    company: "Market Access Group",
-    location: "Dhaka, Bangladesh",
-    startDate: "2018",
-    endDate: "2020",
-    description:
-      "Led business development, partnerships, and new-market entry strategy for one of Bangladesh's leading retail consulting and analytics groups.",
-  },
+  // {
+  //   id: "pmaspire",
+  //   role: "Consultant — Advertising & Sales Promotions",
+  //   company: "PMaspire",
+  //   location: "Singapore",
+  //   startDate: "2022",
+  //   endDate: "Present",
+  //   isCurrent: true,
+  //   description:
+  //     "Senior consulting for a project management education platform serving aspirants in 100+ countries — brand, GTM, and growth strategy.",
+  // },
+  // {
+  //   id: "iub",
+  //   role: "Adjunct Lecturer · Marketing Strategy",
+  //   company: "Independent University, Bangladesh (IUB)",
+  //   location: "Dhaka, Bangladesh",
+  //   startDate: "2016",
+  //   endDate: "Present",
+  //   isCurrent: true,
+  //   description:
+  //     "Teaching MBA and undergraduate courses on marketing strategy, brand management, and entrepreneurship. A practitioner-led perspective on theory.",
+  // },
+  // {
+  //   id: "market-access",
+  //   role: "Chief Business Development Officer",
+  //   company: "Market Access Group",
+  //   location: "Dhaka, Bangladesh",
+  //   startDate: "2018",
+  //   endDate: "2020",
+  //   description:
+  //     "Led business development, partnerships, and new-market entry strategy for one of Bangladesh's leading retail consulting and analytics groups.",
+  // },
   {
     id: "bay",
     role: "Chief Marketing Officer",
@@ -87,7 +89,8 @@ export const experiences: Experience[] = [
   },
   {
     id: "rancon",
-    role: "Senior Marketing Manager",
+    // role: "Senior Marketing Manager",
+    role: "Divisional Marketing Head of Communications",
     company: "RANCON Holdings Ltd.",
     location: "Dhaka, Bangladesh",
     startDate: "2013",
@@ -97,7 +100,8 @@ export const experiences: Experience[] = [
   },
   {
     id: "siam-cement",
-    role: "Brand & Marketing Manager",
+    role: "Marketing Insight & Intelligence",
+    // role: "Brand & Marketing Manager",
     company: "Siam City Cement (Holcim Group)",
     location: "Dhaka, Bangladesh",
     startDate: "2011",
