@@ -1,14 +1,14 @@
-import { HomeHero } from "@/components/sections/HomeHero";
-import { TeaserGrid } from "@/components/sections/TeaserGrid";
 import { AboutNarrative } from "@/components/sections/AboutNarrative";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { Timeline } from "@/components/sections/Timeline";
-import { Credentials } from "@/components/sections/Credentials";
-import { ProjectsList } from "@/components/sections/ProjectsList";
-import { ExpertiseGrid } from "@/components/sections/ExpertiseGrid";
-import { ProductsGrid } from "@/components/sections/ProductsGrid";
 import { ContactDetails } from "@/components/sections/ContactDetails";
+import { Credentials } from "@/components/sections/Credentials";
+import { ExpertiseGrid } from "@/components/sections/ExpertiseGrid";
+import { HomeHero } from "@/components/sections/HomeHero";
+import { ProductsGrid } from "@/components/sections/ProductsGrid";
+import { ProjectsList } from "@/components/sections/ProjectsList";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { TeaserGrid } from "@/components/sections/TeaserGrid";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Timeline } from "@/components/sections/Timeline";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function HomePage() {
@@ -38,7 +38,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Practice ── */}
-      <section id="practice" className="scroll-section border-t border-line-soft">
+      <section
+        id="practice"
+        className="scroll-section border-t border-line-soft"
+      >
         <SectionHeader
           eyebrow="02 · Practice"
           title={[
@@ -51,12 +54,18 @@ export default function HomePage() {
       </section>
 
       {/* ── Experience ── */}
-      <section id="experience" className="scroll-section border-t border-line-soft">
+      <section
+        id="experience"
+        className="scroll-section border-t border-line-soft"
+      >
         <SectionHeader
           eyebrow="03 · Experience"
           title={[
             { type: "text", value: "A career across " },
-            { type: "ital", value: "strategy, marketing, and venture-building" },
+            {
+              type: "ital",
+              value: "strategy, marketing, and venture-building",
+            },
             { type: "text", value: "." },
           ]}
           subtitle="From senior marketing roles in industrial conglomerates to founding a tech firm — fifteen years of operating leadership across cement, automotive, real estate, retail consulting, and SaaS."
@@ -80,7 +89,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Expertise ── */}
-      <section id="expertise" className="scroll-section border-t border-line-soft">
+      <section
+        id="expertise"
+        className="scroll-section border-t border-line-soft"
+      >
         <SectionHeader
           eyebrow="05 · Expertise"
           title={[
@@ -94,9 +106,12 @@ export default function HomePage() {
       </section>
 
       {/* ── Ventures ── */}
-      <section id="ventures" className="scroll-section border-t border-line-soft">
+      <section
+        id="ventures"
+        className="scroll-section border-t border-line-soft"
+      >
         <SectionHeader
-          eyebrow="06 · Ventures & Products"
+          eyebrow="06 · NVP +"
           title={[
             { type: "text", value: "The " },
             { type: "ital", value: "UpscaleBD" },
@@ -108,7 +123,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="scroll-section border-t border-line-soft">
+      <section
+        id="contact"
+        className="scroll-section border-t border-line-soft"
+      >
         <SectionHeader
           eyebrow="07 · Get in Touch"
           title={[

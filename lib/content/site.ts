@@ -69,7 +69,7 @@ export const site: SiteContent = {
   },
 
   contact: {
-    email: "mnshakib@upscalebd.com",
+    email: "shakib@upscalebd.com",
     location: "Toronto, Canada · Dhaka, Bangladesh",
     availability: "Q2 — Q3 2026",
     responseTime: "Usually within 48 hours",

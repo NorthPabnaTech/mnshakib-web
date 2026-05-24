@@ -207,7 +207,7 @@ The page components don't care where data comes from — they take props. So swa
 ## 📌 Still Needs
 
 - [ ] Real profile photo (drop in `public/profile.jpg`, update `site.ts`)
-- [ ] Final email address (currently `mnshakib@upscalebd.com`)
+- [ ] Final email address (currently `shakib@upscalebd.com`)
 - [ ] Real testimonial attributions (currently anonymized)
 - [ ] OG image for social shares (drop in `public/og-image.png`)
 - [ ] Favicon (drop in `app/icon.png`)

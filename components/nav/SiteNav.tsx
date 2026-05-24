@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { href: "#experience", label: "Experience" },
   { href: "#work", label: "Work" },
   { href: "#expertise", label: "Expertise" },
-  { href: "#ventures", label: "NVT Plus" },
+  { href: "#ventures", label: "NVP +" },
 ];
 
 export function SiteNav() {
