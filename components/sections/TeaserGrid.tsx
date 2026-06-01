@@ -121,6 +121,58 @@ export function TeaserGrid() {
     };
   }, []);
 
+  // Auto-slide functionality
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+
+    const startAutoSlide = () => {
+      interval = setInterval(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const { scrollLeft, scrollWidth, clientWidth } = el;
+        const maxScroll = scrollWidth - clientWidth;
+
+        // If we've reached the end, scroll back to start
+        if (scrollLeft >= maxScroll - 10) {
+          el.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Otherwise scroll next
+          const cardWidth = el.firstElementChild?.clientWidth || 300;
+          const gap = 24;
+          el.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
+        }
+      }, 3000); // 3 seconds interval
+    };
+
+    startAutoSlide();
+
+    // Pause on hover or touch
+    const el = containerRef.current;
+    if (el) {
+      const pause = () => clearInterval(interval);
+      const resume = () => {
+        clearInterval(interval);
+        startAutoSlide();
+      };
+      
+      el.addEventListener('mouseenter', pause);
+      el.addEventListener('mouseleave', resume);
+      el.addEventListener('touchstart', pause, { passive: true });
+      el.addEventListener('touchend', resume, { passive: true });
+
+      return () => {
+        clearInterval(interval);
+        el.removeEventListener('mouseenter', pause);
+        el.removeEventListener('mouseleave', resume);
+        el.removeEventListener('touchstart', pause);
+        el.removeEventListener('touchend', resume);
+      };
+    }
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handlePrev = () => {
     const el = containerRef.current;
     if (!el) return;

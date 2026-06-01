@@ -111,7 +111,7 @@ export default function HomePage() {
         className="scroll-section border-t border-line-soft"
       >
         <SectionHeader
-          eyebrow="06 · NVP +"
+          eyebrow="06 · MVP +"
           title={[
             { type: "text", value: "The " },
             { type: "ital", value: "UpscaleBD" },
