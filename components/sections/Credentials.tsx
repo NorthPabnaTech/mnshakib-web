@@ -6,14 +6,20 @@ import Image from "next/image";
 
 // Maps certification IDs → logo file paths in /public/images/institutes/
 const CERT_LOGOS: Record<string, string> = {
-  mcim: "/images/institutes/cim.jpg",
-  sfp: "/images/institutes/smart_factory_institute_logo.jpg",
-  cmc: "/images/institutes/cmc.jpg",
-  "google-analytics": "/images/institutes/google-skill-shop-certificate.jpg",
-  hubspot: "/images/institutes/Hubspot Academy.png",
-  dmi: "/images/institutes/digigtal marketing institute.jpg",
-  "pm-foundations": "/images/institutes/PMaspire.png",
-  "blue-ocean": "/images/institutes/INSEAD Online.jpg",
+  "pma-mckinsey": "/images/certifications/McKinsey & Company.jpg",
+  "pa-mckinsey": "/images/certifications/McKinsey & Company.jpg",
+  "ca-wdv-deloitte": "/images/certifications/monitordeloitte_logo.jpg",
+  "ca-f-deloitte": "/images/certifications/monitordeloitte_logo.jpg",
+  "mcim": "/images/certifications/CIM  The Chartered Institute of Marketing.jpg",
+  "sfp": "/images/certifications/salesinstitute_logo.jpg",
+  "cmc": "/images/certifications/canadian_association_of_management_consultants_logo.jpg",
+  "cim-planning": "/images/certifications/CIM  The Chartered Institute of Marketing.jpg",
+  "bat-marketing": "/images/certifications/british_american_tobacco_logo.jpg",
+  "du-qualitative": "/images/certifications/University of Dhaka.jpg",
+  "gcms-trading": "/images/certifications/Global Capital Market Solutions (GCMS).jpg",
+  "gs-cf": "/images/certifications/GrowthSchool.jpg",
+  "gs-gh": "/images/certifications/GrowthSchool.jpg",
+  "gs-dm": "/images/certifications/GrowthSchool.jpg",
 };
 
 export function Credentials() {
@@ -34,9 +40,9 @@ export function Credentials() {
           <div>
             <h3 className="font-serif font-normal text-xl mb-6 pb-3 border-b border-line-soft flex items-center gap-3">
               Education
-              <span className="font-mono text-[11px] text-accent tracking-[0.18em] px-2 py-0.5 border border-accent-soft rounded-full">
+              {/* <span className="font-mono text-[11px] text-accent tracking-[0.18em] px-2 py-0.5 border border-accent-soft rounded-full">
                 {String(educations.length).padStart(2, "0")} ENTRIES
-              </span>
+              </span> */}
             </h3>
             {educations.map((e) => (
               <div
@@ -63,9 +69,9 @@ export function Credentials() {
           <div>
             <h3 className="font-serif font-normal text-xl mb-6 pb-3 border-b border-line-soft flex items-center gap-3">
               Certifications
-              <span className="font-mono text-[11px] text-accent tracking-[0.18em] px-2 py-0.5 border border-accent-soft rounded-full">
+              {/* <span className="font-mono text-[11px] text-accent tracking-[0.18em] px-2 py-0.5 border border-accent-soft rounded-full">
                 {String(certifications.length).padStart(2, "0")} ACTIVE
-              </span>
+              </span> */}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {certifications.map((c) => {

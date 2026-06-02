@@ -10,7 +10,7 @@ export function Timeline() {
 
         <div className="relative pl-8 mt-8">
           {/* Vertical rule */}
-          <span className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-accent via-line-soft to-transparent" />
+          <span className="absolute left-[15px] top-4 bottom-2 w-[2px] bg-gradient-to-b from-accent via-line-soft to-transparent" />
 
           {experiences.map((exp) => (
             <div
@@ -18,11 +18,12 @@ export function Timeline() {
               className="relative pb-10 grid grid-cols-1 md:grid-cols-[170px_1fr] gap-2 md:gap-10"
             >
               {/* Dot marker */}
-              <span className="absolute -left-7 top-2 w-4 h-4 rounded-full bg-bg border border-accent" />
+              <span className="absolute -left-[24px] top-2 w-4 h-4 rounded-full bg-bg border-2 border-accent flex items-center justify-center z-10">
+                {exp.isCurrent && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
+              </span>
 
               {/* Date column */}
               <div className="font-mono text-xs text-text-dim uppercase tracking-[0.14em] pt-1">
-                {exp.isCurrent && <span className="text-accent">●</span>}{" "}
                 {exp.startDate}
                 {exp.endDate && ` — ${exp.endDate}`}
               </div>

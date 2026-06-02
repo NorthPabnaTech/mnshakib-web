@@ -91,7 +91,7 @@ export const experiences: Experience[] = [
   {
     id: "rancon",
     // role: "Senior Marketing Manager",
-    role: "Divisional Marketing Head of Communications",
+    role: "Divisional Head of Marketing & Communications",
     company: "RANCON Holdings Ltd.",
     location: "Dhaka, Bangladesh",
     startDate: "2013",
@@ -109,5 +109,15 @@ export const experiences: Experience[] = [
     endDate: "2013",
     description:
       "Early-career brand management at a multinational cement major — campaign strategy, trade marketing, and B2B brand positioning across construction and infrastructure segments.",
+  },
+  {
+    id: "bat",
+    role: "Key Account Management",
+    company: "British American Tobacco Bangladesh Limited",
+    location: "Cox's Bazar, Chittagong & Dhaka",
+    startDate: "2007",
+    endDate: "2011",
+    description:
+      "Led strategic campaign activations, pricing retention projects, and retail universe expansion across the southern region. Expanded distribution to over 18,000 outlets, driving 23% volume and 37% value growth through enhanced coverage and execution.",
   },
 ];
