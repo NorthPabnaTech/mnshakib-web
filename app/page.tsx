@@ -72,6 +72,7 @@ export default function HomePage() {
         />
         <Timeline />
         <Credentials />
+        {/* <SkillsSection /> */}
       </section>
 
       {/* ── Work ── */}
