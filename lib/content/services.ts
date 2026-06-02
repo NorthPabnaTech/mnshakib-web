@@ -17,7 +17,8 @@ export const services: Service[] = [
     italicTitle: "& Insight",
     description:
       "Building the analytics stack that actually gets used — event instrumentation, attribution modelling, cohort analysis, and the boardroom-ready KPI views leadership needs to make decisions.",
-    tags: ["Analytics Strategy", "Attribution", "Dashboards", "KPI Design"],
+    tags: ["Analytics Strategy", "Python", "Data Modeling", "Attribution"],
+    // tags: ["Analytics Strategy", "Attribution", "Dashboards", "KPI Design"],
   },
   {
     id: "consulting",

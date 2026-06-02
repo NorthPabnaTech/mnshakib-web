@@ -12,12 +12,12 @@ export function ServicesGrid() {
               key={s.id}
               className="bg-bg hover:bg-bg-elev transition-colors duration-300 p-6 sm:p-10"
             >
-              <div className="font-mono text-[11px] text-text-dim tracking-[0.2em] mb-7 flex items-center gap-3">
+              {/* <div className="font-mono text-[11px] text-text-dim tracking-[0.2em] mb-7 flex items-center gap-3">
                 <span className="w-7 h-7 border border-line rounded-full flex items-center justify-center text-accent font-serif italic text-sm">
                   {s.serial}
                 </span>
                 {String(i + 1).padStart(2, "0")} / PRACTICE
-              </div>
+              </div> */}
               <h3 className="font-serif font-normal text-2xl tracking-tight leading-tight mb-3">
                 {s.title}{" "}
                 {s.italicTitle && (
@@ -31,7 +31,10 @@ export function ServicesGrid() {
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {s.tags.map((t) => (
-                  <Tag className="border-green-500" key={t}>
+                  <Tag
+                    className="border-accent/50 text-accent hover:border-accent hover:bg-accent/5 transition-colors"
+                    key={t}
+                  >
                     {t}
                   </Tag>
                 ))}

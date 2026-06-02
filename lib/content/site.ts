@@ -6,7 +6,8 @@ import type { SiteContent } from "@/lib/types";
  */
 export const site: SiteContent = {
   hero: {
-    eyebrow: "Strategy · Marketing · AI Ventures",
+    // eyebrow: "Strategy · Marketing  AI Ventures",
+    eyebrow: "Data · Strategy · Marketing",
     headlineParts: [
       { type: "text", value: "Strategy " },
       { type: "ital", value: "&" },

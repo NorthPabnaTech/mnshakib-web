@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import Marquee from "react-fast-marquee";
 
 interface Teaser {
   num: string;
@@ -80,113 +80,10 @@ const TEASERS: Teaser[] = [
 ];
 
 export function TeaserGrid() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
   const scrollTo = (hash: string) => {
     const id = hash.replace("#", "");
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const updateScrollState = () => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const { scrollLeft, scrollWidth, clientWidth } = el;
-    const maxScroll = scrollWidth - clientWidth;
-
-    // Calculate progress (0 to 100)
-    const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
-    setScrollProgress(progress);
-
-    // Update button states
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft < maxScroll - 10);
-  };
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (el) {
-      el.addEventListener("scroll", updateScrollState);
-      // Run once on mount / resize
-      updateScrollState();
-      window.addEventListener("resize", updateScrollState);
-    }
-    return () => {
-      if (el) el.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, []);
-
-  // Auto-slide functionality
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-
-    const startAutoSlide = () => {
-      interval = setInterval(() => {
-        const el = containerRef.current;
-        if (!el) return;
-
-        const { scrollLeft, scrollWidth, clientWidth } = el;
-        const maxScroll = scrollWidth - clientWidth;
-
-        // If we've reached the end, scroll back to start
-        if (scrollLeft >= maxScroll - 10) {
-          el.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          // Otherwise scroll next
-          const cardWidth = el.firstElementChild?.clientWidth || 300;
-          const gap = 24;
-          el.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
-        }
-      }, 3000); // 3 seconds interval
-    };
-
-    startAutoSlide();
-
-    // Pause on hover or touch
-    const el = containerRef.current;
-    if (el) {
-      const pause = () => clearInterval(interval);
-      const resume = () => {
-        clearInterval(interval);
-        startAutoSlide();
-      };
-      
-      el.addEventListener('mouseenter', pause);
-      el.addEventListener('mouseleave', resume);
-      el.addEventListener('touchstart', pause, { passive: true });
-      el.addEventListener('touchend', resume, { passive: true });
-
-      return () => {
-        clearInterval(interval);
-        el.removeEventListener('mouseenter', pause);
-        el.removeEventListener('mouseleave', resume);
-        el.removeEventListener('touchstart', pause);
-        el.removeEventListener('touchend', resume);
-      };
-    }
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handlePrev = () => {
-    const el = containerRef.current;
-    if (!el) return;
-    const cardWidth = el.firstElementChild?.clientWidth || 300;
-    const gap = 24; // matches gap-6
-    el.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
-  };
-
-  const handleNext = () => {
-    const el = containerRef.current;
-    if (!el) return;
-    const cardWidth = el.firstElementChild?.clientWidth || 300;
-    const gap = 24; // matches gap-6
-    el.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
   };
 
   return (
@@ -199,62 +96,17 @@ export function TeaserGrid() {
               Five places to start<span className="text-accent">.</span>
             </h2>
             <p className="text-base text-text-mute leading-relaxed max-w-[580px]">
-              A short introduction is below — but if you&apos;d rather skip straight to a particular
-              area, here are the sections.
+              A short introduction is below — but if you&apos;d rather skip
+              straight to a particular area, here are the sections.
             </p>
-          </div>
-
-          {/* Carousel Arrows */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handlePrev}
-              disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                canScrollLeft
-                  ? "border-line text-text hover:border-accent hover:text-accent bg-bg-elev/30 hover:bg-bg-elev"
-                  : "border-line/30 text-text-dim/30 cursor-not-allowed"
-              }`}
-              aria-label="Previous slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                canScrollRight
-                  ? "border-line text-text hover:border-accent hover:text-accent bg-bg-elev/30 hover:bg-bg-elev"
-                  : "border-line/30 text-text-dim/30 cursor-not-allowed"
-              }`}
-              aria-label="Next slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </button>
           </div>
         </div>
 
-        {/* Carousel Tracks */}
-        <div
-          ref={containerRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-6 px-0.5"
+        <Marquee
+          speed={40}
+          gradient={false}
+          pauseOnHover={true}
+          className="pb-6"
         >
           {TEASERS.map((t) => (
             <a
@@ -264,7 +116,7 @@ export function TeaserGrid() {
                 e.preventDefault();
                 scrollTo(t.href);
               }}
-              className="group block w-[85vw] sm:w-[45vw] lg:w-[31.5vw] shrink-0 snap-start bg-bg-elev border border-line-soft hover:border-accent-soft hover:-translate-y-1 hover:bg-bg-elev2 transition-all duration-300 p-8 cursor-pointer relative"
+              className="group block ml-6 w-[85vw] sm:w-[45vw] lg:w-[31.5vw] shrink-0 bg-bg-elev border border-line-soft hover:border-accent-soft hover:-translate-y-1 hover:bg-bg-elev2 transition-all duration-300 p-8 cursor-pointer relative"
             >
               {/* Gold light reflection on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -285,20 +137,7 @@ export function TeaserGrid() {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* Progress Bar indicator */}
-        <div className="mt-8 flex items-center gap-4">
-          <div className="h-[2px] bg-line-soft flex-grow rounded-full overflow-hidden relative">
-            <div
-              className="absolute top-0 bottom-0 left-0 bg-accent transition-all duration-150 rounded-full"
-              style={{ width: `${scrollProgress}%` }}
-            />
-          </div>
-          <div className="font-mono text-[10px] text-text-dim tracking-wider uppercase select-none">
-            Slide Progress
-          </div>
-        </div>
+        </Marquee>
       </Container>
     </section>
   );

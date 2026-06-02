@@ -6,17 +6,6 @@ import type { Experience } from "@/lib/types";
  */
 export const experiences: Experience[] = [
   {
-    id: "torontocreatives",
-    role: "Product Strategy Lead",
-    company: "TorontoCreatives.com",
-    location: "Toronto, Canada",
-    startDate: "2024",
-    endDate: "Present",
-    isCurrent: true,
-    description:
-      "Leading product and brand strategy for a Canadian creative-technology studio serving B2B SaaS clients and Canadian SMEs entering international markets.",
-  },
-  {
     id: "upscalebd",
     role: "Founder & Managing Director",
     company: "UpscaleBD Ltd.",
@@ -34,6 +23,18 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    id: "torontocreatives",
+    role: "Product Strategy Lead",
+    company: "TorontoCreatives.com",
+    location: "Toronto, Canada",
+    startDate: "2024",
+    endDate: "Present",
+    isCurrent: true,
+    description:
+      "Leading product and brand strategy for a Canadian creative-technology studio serving B2B SaaS clients and Canadian SMEs entering international markets.",
+  },
+
+  {
     id: "maac",
     role: "Chief Strategy & Marketing Officer",
     company: "Market Access Analytics & Consulting (MAAC)",
@@ -41,7 +42,7 @@ export const experiences: Experience[] = [
     startDate: "2020",
     endDate: "2025",
     // endDate: "Present",
-    isCurrent: true,
+    isCurrent: false,
     description:
       "Senior leadership across strategy, marketing, and platform development. Co-led the launch of CalibraX (gamified business simulation) and supported the Upscale ecosystem buildout.",
   },
