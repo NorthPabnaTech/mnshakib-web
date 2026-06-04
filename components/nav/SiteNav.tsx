@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { href: "#about", label: "About" },
   { href: "#practice", label: "Practice" },
   { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
   { href: "#work", label: "Work" },
   { href: "#expertise", label: "Expertise" },
   { href: "#ventures", label: "MVP +" },
@@ -31,33 +32,91 @@ export function SiteNav() {
       "about",
       "practice",
       "experience",
+      "skills",
       "work",
       "expertise",
       "ventures",
       "contact",
     ];
-    const observers: IntersectionObserver[] = [];
 
-    const callback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+    const observedElements = new Set<string>();
+
+    const callback = () => {
+      // Find the section that covers the navbar line (72px from top)
+      let activeId = "";
+      
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // If the section top is <= 100px and bottom is >= 72px, it covers the active zone
+          if (rect.top <= 100 && rect.bottom >= 72) {
+            activeId = id;
+            break;
+          }
+        }
+      }
+
+      // Failsafe: if no section covers the line, find the closest upcoming section
+      if (!activeId) {
+        let minTop = Infinity;
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top > 0 && rect.top < minTop) {
+              minTop = rect.top;
+              activeId = id;
+            }
+          }
+        }
+      }
+
+      if (activeId) {
+        setActiveSection(activeId);
+      }
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      rootMargin: "0px",
+      threshold: 0,
+    });
+
+    const registerElements = () => {
+      sectionIds.forEach((id) => {
+        if (observedElements.has(id)) return;
+        const el = document.getElementById(id);
+        if (el) {
+          observer.observe(el);
+          observedElements.add(id);
         }
       });
     };
 
-    const observer = new IntersectionObserver(callback, {
-      rootMargin: "-30% 0px -60% 0px",
-      threshold: 0,
-    });
+    // 1. Register immediately
+    registerElements();
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    // 2. Register after a short timeout to catch hydrated client-side sections
+    const timer = setTimeout(registerElements, 500);
 
-    observers.push(observer);
-    return () => observers.forEach((o) => o.disconnect());
+    // 3. Register on first scroll/interaction as a failsafe
+    const handleScroll = () => {
+      registerElements();
+      if (observedElements.size === sectionIds.length) {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    // 4. Also listen to window scroll to update active section in real-time
+    window.addEventListener("scroll", callback);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", callback);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollTo = (hash: string) => {
@@ -91,6 +150,7 @@ export function SiteNav() {
           {NAV_ITEMS.map((item) => {
             const sectionId = item.href.replace("#", "");
             const isActive = activeSection === sectionId;
+            console.log({ isActive, activeSection, sectionId });
             return (
               <li key={item.href}>
                 <a

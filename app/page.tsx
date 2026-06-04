@@ -6,6 +6,7 @@ import { HomeHero } from "@/components/sections/HomeHero";
 import { ProductsGrid } from "@/components/sections/ProductsGrid";
 import { ProjectsList } from "@/components/sections/ProjectsList";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TeaserGrid } from "@/components/sections/TeaserGrid";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Timeline } from "@/components/sections/Timeline";
@@ -72,7 +73,13 @@ export default function HomePage() {
         />
         <Timeline />
         <Credentials />
-        {/* <SkillsSection /> */}
+      </section>
+
+      <section
+        id="skills"
+        className="scroll-section py-20 border-t border-line-soft"
+      >
+        <SkillsSection />
       </section>
 
       {/* ── Work ── */}
