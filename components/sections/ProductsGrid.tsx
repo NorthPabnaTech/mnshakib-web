@@ -7,9 +7,11 @@ export function ProductsGrid() {
       <Container>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {products.map((p) => {
-            const Component = p.url ? "a" : "div";
-            const linkProps = p.url
-              ? { href: p.url, target: "_blank", rel: "noreferrer" }
+            // Prefer upscaleUrl (product detail page), fall back to external url
+            const linkUrl = p.upscaleUrl ?? p.url;
+            const Component = linkUrl ? "a" : "div";
+            const linkProps = linkUrl
+              ? { href: linkUrl, target: "_blank", rel: "noreferrer" }
               : {};
             return (
               <Component
@@ -25,9 +27,9 @@ export function ProductsGrid() {
                   {p.category}
                 </div>
                 <p className="text-sm text-text-mute leading-relaxed flex-grow">{p.description}</p>
-                {p.url && (
+                {linkUrl && (
                   <span className="mt-5 flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.15em] text-text-mute group-hover:text-accent transition-colors">
-                    Visit Product <span>→</span>
+                    View on UpscaleBD <span>→</span>
                   </span>
                 )}
               </Component>
