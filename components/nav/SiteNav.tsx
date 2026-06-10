@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
+// nav items
 const NAV_ITEMS = [
   { href: "#about", label: "About" },
   { href: "#practice", label: "Practice" },
@@ -44,7 +45,7 @@ export function SiteNav() {
     const callback = () => {
       // Find the section that covers the navbar line (72px from top)
       let activeId = "";
-      
+
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
