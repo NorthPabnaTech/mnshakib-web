@@ -7,6 +7,7 @@ export const projects: Project[] = [
     title: "Complaint Management System",
     client: "ActionAid Bangladesh",
     category: "Enterprise · NGO Tech",
+    upscaleUrl: "https://upscalebd.com/products/pmx",
   },
   {
     id: "healthcarex",
@@ -14,6 +15,7 @@ export const projects: Project[] = [
     title: "HealthCareX Platform",
     client: "Healthcare · Pitch",
     category: "Strategy · Product",
+    upscaleUrl: "https://upscalebd.com/contact",
   },
   {
     id: "pathfinder",
@@ -21,6 +23,7 @@ export const projects: Project[] = [
     title: "Pathfinder Campus Roadshow",
     client: "Pathfinder · UpscaleBD",
     category: "Brand · Growth",
+    upscaleUrl: "https://upscalebd.com/contact",
   },
   {
     id: "actionaid-proc",
@@ -28,6 +31,7 @@ export const projects: Project[] = [
     title: "Procurement Automation Platform",
     client: "ActionAid Bangladesh",
     category: "Enterprise SaaS",
+    upscaleUrl: "https://upscalebd.com/products/pmx",
   },
   {
     id: "prime-bank",
@@ -35,6 +39,7 @@ export const projects: Project[] = [
     title: "Regulatory Automation Pilot",
     client: "Prime Bank Ltd.",
     category: "Banking · Automation",
+    upscaleUrl: "https://upscalebd.com/contact",
   },
   {
     id: "coats",
@@ -42,6 +47,7 @@ export const projects: Project[] = [
     title: "L&D Transformation Programme",
     client: "Coats Bangladesh",
     category: "Consulting · L&D",
+    upscaleUrl: "https://upscalebd.com/products/calibrax",
   },
   {
     id: "hameem",
@@ -49,6 +55,7 @@ export const projects: Project[] = [
     title: "HR Tech Suite for 75K+ Workforce",
     client: "Ha-Meem Group",
     category: "Enterprise HRIS",
+    upscaleUrl: "https://upscalebd.com/products/hrx",
   },
   {
     id: "textilex",
@@ -56,6 +63,7 @@ export const projects: Project[] = [
     title: "TextileX Cross-Border Platform",
     client: "B2B Trade · Canada/BD",
     category: "Marketplace",
+    upscaleUrl: "https://upscalebd.com/contact",
   },
   {
     id: "talentbridge",
@@ -63,5 +71,6 @@ export const projects: Project[] = [
     title: "TalentBridge Canada",
     client: "Immigrant Talent Ecosystem",
     category: "Platform · GovTech",
+    upscaleUrl: "https://upscalebd.com/contact",
   },
 ];

@@ -53,6 +53,7 @@ export interface Project {
   title: string;
   client: string;
   category: string;
+  upscaleUrl?: string; // links to upscalebd.com product page, or contact page
 }
 
 export interface Product {
@@ -60,7 +61,8 @@ export interface Product {
   name: string;
   category: string;
   description: string;
-  url?: string;
+  url?: string;        // external product site (e.g. somriddhi.com)
+  upscaleUrl?: string; // upscalebd.com product detail page (or /contact)
   status: "live" | "development" | "coming-soon";
 }
 

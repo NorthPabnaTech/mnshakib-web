@@ -7,8 +7,11 @@ export function ProjectsList() {
       <Container>
         <div className="flex flex-col">
           {projects.map((p, i) => (
-            <div
+            <a
               key={p.id}
+              href={p.upscaleUrl}
+              target="_blank"
+              rel="noreferrer"
               className={`group grid grid-cols-[60px_1fr_auto] md:grid-cols-[80px_1.3fr_1fr_1fr_auto] gap-4 md:gap-8 py-7 border-t border-line-soft items-center cursor-pointer transition-all hover:px-4 md:hover:px-5 ${
                 i === projects.length - 1 ? "border-b" : ""
               }`}
@@ -26,7 +29,7 @@ export function ProjectsList() {
               <span className="font-serif text-2xl text-text-dim transition-all group-hover:text-accent group-hover:translate-x-2">
                 →
               </span>
-            </div>
+            </a>
           ))}
         </div>
       </Container>
