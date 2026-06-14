@@ -91,10 +91,10 @@ export function HomeHero() {
                   <div className="text-text mt-1">{hero.location}</div>
                 </div>
                 <div className="text-right">
-                  <div>
+                  {/* <div>
                     Available{" "}
                     {hero.isAvailable && <span className="text-accent">●</span>}
-                  </div>
+                  </div> */}
                   <div className="text-text mt-1">{hero.availability}</div>
                 </div>
               </div>
