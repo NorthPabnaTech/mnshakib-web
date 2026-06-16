@@ -48,7 +48,7 @@ export const site: SiteContent = {
       },
       {
         type: "paragraph",
-        text: "My career has moved across cement, real estate, automotive, retail consulting, ed-tech, and most recently applied AI — for clients ranging from ActionAid Bangladesh and BSRM to Coats, Ha-Meem Group, and Canadian SMEs entering global markets. I've co-built CalibraX and Upscale, taught marketing strategy as an adjunct at Independent University Bangladesh, and consulted across Bangladesh, the GCC, and increasingly Canada.",
+        text: "My career has moved across cement, real estate, automotive, retail consulting, ed-tech, and most recently applied AI — for clients ranging from ActionAid Bangladesh and BSRM to Ha-Meem Group, and Canadian SMEs entering global markets. I've co-built CalibraX and Upscale, and consulted across Bangladesh, the GCC, and increasingly Canada.",
       },
       {
         type: "paragraph",
@@ -65,7 +65,7 @@ export const site: SiteContent = {
       { role: "CSMO", org: "MAAC" },
       { role: "Product Strategy Lead", org: "TorontoCreatives" },
       { role: "Consultant", org: "PMaspire Singapore" },
-      { role: "Adjunct Lecturer", org: "Independent Univ. BD" },
+      // { role: "Adjunct Lecturer", org: "Independent Univ. BD" },
     ],
   },
 
@@ -82,3 +82,4 @@ export const site: SiteContent = {
     { label: "UpscaleBD", url: "https://upscalebd.com" },
   ],
 };
+//  taught marketing strategy as an adjunct at Independent University Bangladesh,

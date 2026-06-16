@@ -9,7 +9,7 @@ export function ContactDetails() {
     { label: "Location", value: contact.location },
     { label: "Email", value: contact.email, link: `mailto:${contact.email}` },
     { label: "Booking", value: "30-min intro · by request" },
-    { label: "Availability", value: contact.availability },
+    // { label: "Availability", value: contact.availability },
     { label: "Response time", value: contact.responseTime },
   ];
 
