@@ -7,7 +7,7 @@ export const projects: Project[] = [
     title: "Complaint Management System",
     client: "ActionAid Bangladesh",
     category: "Enterprise · NGO Tech",
-    upscaleUrl: "https://upscalebd.com/contact",
+    upscaleUrl: "https://upscalebd.com/case-studies/4",
   },
   {
     id: "healthcarex",
